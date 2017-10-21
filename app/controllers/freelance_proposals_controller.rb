@@ -18,6 +18,7 @@ class FreelanceProposalsController < ApplicationController
     @freelance_proposal = FreelanceProposal.new(freelance_proposal_params)
 
     if @freelance_proposal.save
+      ProposalMailer.email(@proposal).deliver_later
       render json: @freelance_proposal, status: :created, location: @freelance_proposal
     else
       render json: @freelance_proposal.errors, status: :unprocessable_entity
