@@ -1,0 +1,2 @@
+class FreelanceProposal < ApplicationRecord
+end
